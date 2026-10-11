@@ -2395,8 +2395,8 @@ function GAME.start()
     GAME.secTime = {}
 
     -- Rank
-    GAME.rank = M.NH == 1 and 1e99 or 1 
-    TEXTS.rank:set("R-1e99")
+    GAME.rank = M.NH == 1 and 26000 or 1 
+    TEXTS.rank:set("R-26000")
     GAME.xp = 0
     GAME.xpLockLevelMax = URM and M.NH == 2 and 1 or 5
     GAME.xpLockLevel = GAME.xpLockLevelMax
@@ -2406,7 +2406,7 @@ function GAME.start()
 
     -- Floor
     GAME.floor = 0
-    GAME.omega = false
+    GAME.omega = true
     GAME.negFloor = 10
     GAME.negEvent = 1
     GAME.height = -3000
@@ -2421,7 +2421,7 @@ function GAME.start()
     GAME.maxQuestCount = M.NH == 2 and 1 or 3
     GAME.maxQuestSize = (M.NH < 2 and M.DH == 2) and 4 or 8
     GAME.extraQuestBase = M.NH == 2 and (M.DH > 0 and 2.42 - M.DH or 1.26) or M.DH == 1 and .26 or 0
-    GAME.extraQuestVar = M.DH == 1 and 5 or 1
+    GAME.extraQuestVar = M.DH == 1 and (M.NH == 1 and 4 or 2) or 1
     GAME.questFavor = 0 -- Initialized in GAME.upFloor()
     GAME.dmgHeal = 2
     GAME.dmgWrong = M.VL == 2 and (URM and (M.GV == 2 and 2.5 or 5) or 4) or 1
@@ -2438,7 +2438,7 @@ function GAME.start()
     GAME.startingHealth = GAME.fullHealth
     GAME.life = GAME.fullHealth
     GAME.invincible = false
-    GAME.chain = 0
+    GAME.chain = 864
     GAME.gigaspeed = false
     GAME.gigaspeedEntered = false
     TABLE.clear(GAME.gigaspeedFloor)
