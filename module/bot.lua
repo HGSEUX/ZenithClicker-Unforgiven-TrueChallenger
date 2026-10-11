@@ -6,7 +6,7 @@
 local Bot = {
     enabled = false,
     busy = false,
-    delay = .15,
+    delay = .05,
     -- delay = 0,
     timer = 0,
     t2 = 0,
@@ -207,9 +207,9 @@ local function findCard(id)
     end
 end
 
---- 1 % roll – simulates a human misclick.
+--- 0.5 % roll – simulates a human misclick.
 local function misroll()
-    return math.random() < .01
+    return math.random() < .005
 end
 
 --- Pick a random card that is NOT in a given set of ids.
