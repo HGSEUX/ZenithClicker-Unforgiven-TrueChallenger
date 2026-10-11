@@ -2397,7 +2397,7 @@ function GAME.start()
     -- Rank
     GAME.rank = 1
     TEXTS.rank:set("R-1")
-    GAME.xp = 0
+    GAME.xp = -100
     GAME.xpLockLevelMax = URM and M.NH == 2 and 1 or 5
     GAME.xpLockLevel = GAME.xpLockLevelMax
     GAME.xpLockTimer = 0
@@ -2417,7 +2417,7 @@ function GAME.start()
     GAME.animDuration = GAME.slowmo and 26 or 1
 
     -- Params
-    GAME.attackMul = GAME.isUltraRun and .62 or 1
+    GAME.attackMul = GAME.isUltraRun and 1e99 or 1
     GAME.maxQuestCount = M.NH == 2 and 1 or 3
     GAME.maxQuestSize = (M.NH < 2 and M.DH == 2) and 4 or 5
     GAME.extraQuestBase = M.NH == 2 and (M.DH > 0 and 2.42 - M.DH or 1.26) or M.DH == 1 and .26 or 0
@@ -2466,7 +2466,7 @@ function GAME.start()
     -- Ally (DP & rDP)
     GAME.onAlly = false
     GAME.life2 = GAME.fullHealth
-    GAME.rankLimit = 26000
+    GAME.rankLimit = 1e99
     GAME.reviveCount = 0
     GAME.reviveDifficulty = 0
     GAME.koAlly = 0
