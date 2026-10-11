@@ -2395,9 +2395,9 @@ function GAME.start()
     GAME.secTime = {}
 
     -- Rank
-    GAME.rank = 1
-    TEXTS.rank:set("R-1")
-    GAME.xp = -100
+    GAME.rank = M.NH == 1 and 1e99 or 1 
+    TEXTS.rank:set("R-1e99")
+    GAME.xp = 0
     GAME.xpLockLevelMax = URM and M.NH == 2 and 1 or 5
     GAME.xpLockLevel = GAME.xpLockLevelMax
     GAME.xpLockTimer = 0
@@ -2407,9 +2407,9 @@ function GAME.start()
     -- Floor
     GAME.floor = 0
     GAME.omega = false
-    GAME.negFloor = 1
+    GAME.negFloor = 10
     GAME.negEvent = 1
-    GAME.height = 0
+    GAME.height = -3000
     GAME.heightBuffer = 0
     GAME.roundHeight = 0
     GAME.fatigueSet = Fatigue[M.EX == 2 and 'rEX' or M.DP == 2 and 'rDP' or 'normal']
@@ -2417,11 +2417,11 @@ function GAME.start()
     GAME.animDuration = GAME.slowmo and 26 or 1
 
     -- Params
-    GAME.attackMul = GAME.isUltraRun and 1e99 or 1
+    GAME.attackMul = GAME.isUltraRun and 0.62 or 1
     GAME.maxQuestCount = M.NH == 2 and 1 or 3
-    GAME.maxQuestSize = (M.NH < 2 and M.DH == 2) and 4 or 5
+    GAME.maxQuestSize = (M.NH < 2 and M.DH == 2) and 4 or 8
     GAME.extraQuestBase = M.NH == 2 and (M.DH > 0 and 2.42 - M.DH or 1.26) or M.DH == 1 and .26 or 0
-    GAME.extraQuestVar = M.DH == 1 and .626 or 1
+    GAME.extraQuestVar = M.DH == 1 and 5 or 1
     GAME.questFavor = 0 -- Initialized in GAME.upFloor()
     GAME.dmgHeal = 2
     GAME.dmgWrong = M.VL == 2 and (URM and (M.GV == 2 and 2.5 or 5) or 4) or 1
@@ -2448,7 +2448,7 @@ function GAME.start()
     GAME.teramusic = false
     GAME.finishTera = false
     GAME.atkBuffer = 0
-    GAME.atkBufferCap = 8 + (M.DH == 1 and M.NH < 2 and 2 or 0)
+    GAME.atkBufferCap = 999 + (M.DH == 1 and M.NH < 2 and 2 or 0)
     GAME.shuffleMessiness = false
     GAME.lastCommit = {}
 
@@ -2476,7 +2476,7 @@ function GAME.start()
     GAME.switch_sickness = 0
     GAME.hasseenDPnerf = false
     if M.DP == 2 then
-        GAME.rankLimit = 8 + 4 * M.EX
+        GAME.rankLimit = 4 + 4 * M.EX
         GAME.dmgHeal = 3
     end
     GAME.refreshLifeState()
