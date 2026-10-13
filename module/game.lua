@@ -348,13 +348,13 @@ function GAME.getComboZP(list)
     if m.EX then zp = zp * 1.40 elseif m.rEX then zp = zp * 4.2 end
     if m.NH then zp = zp * 1.10 elseif m.rNH then zp = zp * (3.5 + .1 * (#list - 1)) end
     if m.MS then zp = zp * 1.20 elseif m.rMS then zp = zp * 2.45 end
-    if m.GV then zp = zp * 1.10 elseif m.rGV then zp = zp * 2.2 end
-    if m.VL then zp = zp * 1.10 elseif m.rVL then zp = zp * (1.2 + .06 * (#list - 1)) end
+    if m.GV then zp = zp * 1.10 elseif m.rGV then zp = zp * 2.65 end
+    if m.VL then zp = zp * 1.10 elseif m.rVL then zp = zp * (2.8 + .06 * (#list - 1)) end
     if m.DH then zp = zp * 1.15 elseif m.rDH then zp = zp * 2.55 end
     if m.IN then zp = zp * 1.15 elseif m.rIN then zp = zp * 2.9 end
     if m.AS then zp = zp * 0.85 elseif m.rAS then zp = zp * 3.6 end
     if m.DP then zp = zp * 0.95 elseif m.rDP then zp = zp * 4.2 end
-    if m.rMS and m.rIN then zp = zp * 0.75 end
+    if m.rMS and m.IN then zp = zp * 0.75 end
     if m.rEX and m.rNH then zp = zp * 1.9 end
     if m.rDH and m.rIN then zp = zp * 1.6 end
     if m.rEX and m.rDP then zp = zp * 1.65 end
@@ -2447,7 +2447,7 @@ function GAME.start()
     GAME.teramusic = false
     GAME.finishTera = false
     GAME.atkBuffer = 0
-    GAME.atkBufferCap = 13 + (M.DH == 1 and M.NH < 2 and 2 or 0)
+    GAME.atkBufferCap = (M.VL == 2 and M.NH < 2) and 13 or 8 + (M.DH == 1 and M.NH < 2 and 2 or 0)
     GAME.shuffleMessiness = false
     GAME.lastCommit = {}
 
