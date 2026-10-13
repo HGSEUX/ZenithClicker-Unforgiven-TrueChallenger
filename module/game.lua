@@ -2420,7 +2420,7 @@ function GAME.start()
     GAME.maxQuestCount = M.NH == 2 and 1 or 3
     GAME.maxQuestSize = (M.NH < 2 and M.DH == 2) and 4 or 5
     GAME.extraQuestBase = M.NH == 2 and (M.DH > 0 and 2.42 - M.DH or 1.26) or M.DH == 1 and .26 or 0
-    GAME.extraQuestVar = M.DH == 1 and .626 or 1
+    GAME.extraQuestVar = M.DH == 1 and (M.VL == 2 and 2.26 or .626) or (M.VL == 2 and 2.26 or 1)
     GAME.questFavor = 0 -- Initialized in GAME.upFloor()
     GAME.dmgHeal = 2
     GAME.dmgWrong = M.VL == 2 and (URM and (M.GV == 2 and 2.5 or 5) or 4) or 1
@@ -2447,7 +2447,7 @@ function GAME.start()
     GAME.teramusic = false
     GAME.finishTera = false
     GAME.atkBuffer = 0
-    GAME.atkBufferCap = 8 + (M.DH == 1 and M.NH < 2 and 2 or 0)
+    GAME.atkBufferCap = 13 + (M.DH == 1 and M.NH < 2 and 2 or 0)
     GAME.shuffleMessiness = false
     GAME.lastCommit = {}
 
