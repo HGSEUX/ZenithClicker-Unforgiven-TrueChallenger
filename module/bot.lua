@@ -288,7 +288,7 @@ end
 function Bot._updatePlaying()
     if #GAME.quests == 0 then return end
 
-    -- 1. Activate required cards that aren't flipped yet (with 1 % misclick)
+    -- 1. Activate required cards that aren't flipped yet (with 0.5 % misclick)
     for _, C in ipairs(CD) do
         if cardShouldBeActive(C) and not C.active then
             if misroll() then
@@ -314,7 +314,7 @@ function Bot._updatePlaying()
                 for i = 1, 2 do
                     C:setActive(false)
                     Bot.actions = Bot.actions + 1
-                    Bot._schedule(Bot.delay / 2)
+                    Bot._schedule(Bot.delay / 1.5)
                     return
                 end
             else
@@ -388,7 +388,7 @@ function Bot._updatePlaying()
         GAME.commit()
         Bot.actions = Bot.actions + 1
     end
-    Bot._schedule(.26)
+    Bot._schedule(.13)
 end
 
 return Bot
